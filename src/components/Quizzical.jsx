@@ -13,6 +13,9 @@ export default function Quizzical() {
     }
 
     function selectAnswer(questionId, answerId){
+        if(!isPlaying){
+            return
+        }
         console.log(questionId, answerId)
         setAllQuestions(prevAllQuestions => 
             prevAllQuestions.map(question => 
@@ -35,6 +38,7 @@ export default function Quizzical() {
                 key={question.id} 
                 value={question}
                 handleSelect={selectAnswer}
+                hideAnswers={isPlaying}
             />
         )
     })
