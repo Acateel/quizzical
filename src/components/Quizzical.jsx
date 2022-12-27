@@ -1,14 +1,15 @@
+import React from "react"
 import Question from "./Question"
 import './Quizzical.css'
 import data from "../data"
 import questionsFormater from "./quesionsFormater"
 
 export default function Quizzical() {
-    const questionList = data.results.map((question)=>{
-        return <Question value={question}/>
-    })
+    const [allQuestions, setAllQuestions] = React.useState(questionsFormater(data))
 
-    console.log(questionsFormater(data))
+    const questionList = allQuestions.map((question)=>{
+        return <Question key={question.id} value={question}/>
+    })
 
     return(
         <main className="quizzical">
