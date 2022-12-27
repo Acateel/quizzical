@@ -1,14 +1,17 @@
 import './Question.css'
 
-export default function Question(){
+export default function Question({value}){
+    const incorrectAnswers = value.incorrect_answers.map(answer => (
+        <p className='question--answer'>{answer}</p>
+    ))
+    const correctAnswer = <p className='question--answer'>{value.correct_answer}</p>
+
     return (
         <section className='question'>
-            <h3 className='question--text'>How would one say goodbye in Spanish?</h3>
+            <h3 className='question--text'>{value.question}</h3>
             <div className='question--answer-list'>
-                <p className='question--answer'>Adios</p>
-                <p className='question--answer'>Hola</p>
-                <p className='question--answer'>Au Revoir</p>
-                <p className='question--answer'>Salir</p>
+                {correctAnswer}
+                {incorrectAnswers}
             </div>
         </section>
     )
