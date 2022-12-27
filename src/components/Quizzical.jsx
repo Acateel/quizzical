@@ -9,10 +9,12 @@ export default function Quizzical() {
     const [isPlaying, setIsPlaying] = React.useState(true)
 
     React.useEffect(()=>{
-        fetch("https://opentdb.com/api.php?amount=5&category=18&difficulty=medium&type=multiple")
-            .then(res => res.json())
-            .then(data => setAllQuestions(questionsFormater(data)))
-    }, [])
+        if(isPlaying) {
+            fetch("https://opentdb.com/api.php?amount=5&category=18&difficulty=medium&type=multiple")
+                .then(res => res.json())
+                .then(data => setAllQuestions(questionsFormater(data)))
+        }
+    }, [isPlaying])
 
     function togglePlay() {
         setIsPlaying(prevIsPlaying => !prevIsPlaying)
