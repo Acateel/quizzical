@@ -32,6 +32,20 @@ export default function Quizzical() {
         )
     }
 
+    function score(){
+        let count = 0;
+        for (let i = 0; i < allQuestions.length; i++) {
+            let question = allQuestions[i] 
+            for (let j = 0; j < question.answers.length; j++) {
+                let answer = question.answers[j]
+                if(answer.isSelected && answer.isCorrect){
+                    count++
+                }
+            }
+        }
+        return count
+    }
+
     const questionList = allQuestions.map((question)=>{
         return (
             <Question 
@@ -47,7 +61,7 @@ export default function Quizzical() {
         <main className="quizzical">
             {questionList}
             <div className="check-answers">
-                {!isPlaying && <p className="check-answers--score">You scored / correct answers</p>}
+                {!isPlaying && <p className="check-answers--score">You scored {score()}/{allQuestions.length} correct answers</p>}
                 <button 
                     className="check-answers--button"
                     onClick={togglePlay}
