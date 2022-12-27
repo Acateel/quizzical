@@ -1,5 +1,9 @@
+import Question from "./Question"
+
 export default function Quizzical() {
     return(
-        <h1>Quizzical</h1>
+        <main>
+            <Question />
+        </main>
     )
 }
