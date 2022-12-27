@@ -1,24 +1,25 @@
 import { nanoid } from 'nanoid'
+import {decode} from 'html-entities'
 
 export default function questionsFormater(data) {
     return data.results.map(cart => {
         // create new question object
         const newQuestion = { 
             id: nanoid(),
-            question: cart.question,
+            question: decode(cart.question),
             answers: []
         }
         // safe correnct answer like an object
         const correctAnswer = {
             id: nanoid(),
-            value: cart.correct_answer,
+            value: decode(cart.correct_answer),
             isSelected: false,
             isCorrect: true
         }
         // safe incorrect answers like an array of objects
         const incorrectAnswers = cart.incorrect_answers.map(answer => ({
             id: nanoid(),
-            value: answer,
+            value: decode(answer),
             isSelected: false,
             isCorrect: false
         }))
