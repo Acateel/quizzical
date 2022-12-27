@@ -42,12 +42,15 @@ export default function Quizzical() {
     return(
         <main className="quizzical">
             {questionList}
-            <button 
-                className="check-answers"
-                onClick={togglePlay}
-            >
-                Check answers
-            </button>
+            <div className="check-answers">
+                {!isPlaying && <p className="check-answers--score">You scored / correct answers</p>}
+                <button 
+                    className="check-answers--button"
+                    onClick={togglePlay}
+                >
+                    {isPlaying ? "Check answers" : "Play again"}
+                </button>
+            </div>
         </main>
     )
 }

@@ -4,9 +4,22 @@
 }
 
 .check-answers {
+    display: flex;
     margin: 40px auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-answers--score {
+    color: #293264;
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.check-answers--button {
     display: flex;
     align-items: center;
+    margin: 20px;
     justify-content: center;
 
     background-color: #4D5B9E;
