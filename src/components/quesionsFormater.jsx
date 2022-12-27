@@ -12,14 +12,14 @@ export default function questionsFormater(data) {
         const correctAnswer = {
             id: nanoid(),
             value: cart.correct_answer,
-            isHeld: false,
+            isSelected: false,
             isCorrect: true
         }
         // safe incorrect answers like an array of objects
         const incorrectAnswers = cart.incorrect_answers.map(answer => ({
             id: nanoid(),
             value: answer,
-            isHeld: false,
+            isSelected: false,
             isCorrect: false
         }))
         // push Answers in new question object and push correct answer in random index

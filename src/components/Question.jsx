@@ -1,8 +1,14 @@
 import './Question.css'
 
-export default function Question({value}){
+export default function Question({value, handleSelect}){
     const answersElements = value.answers.map(answer => (
-        <p key={answer.id} className='question--answer'>{answer.value}</p>
+        <p 
+            key={answer.id} 
+            className='question--answer'
+            onClick={()=>handleSelect(value.id, answer.id)}
+        >
+            {answer.value}
+        </p>
     ))
 
     return (
