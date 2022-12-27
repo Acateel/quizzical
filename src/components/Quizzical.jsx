@@ -1,11 +1,11 @@
 import React from "react"
 import Question from "./Question"
 import './Quizzical.css'
-import data from "../data"
+import mock from "../mock"
 import questionsFormater from "./quesionsFormater"
 
 export default function Quizzical() {
-    const [allQuestions, setAllQuestions] = React.useState(questionsFormater(data))
+    const [allQuestions, setAllQuestions] = React.useState(questionsFormater(mock))
     const [isPlaying, setIsPlaying] = React.useState(true)
 
     React.useEffect(()=>{
