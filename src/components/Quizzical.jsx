@@ -37,6 +37,7 @@ export default function Quizzical() {
     return(
         <main className="quizzical">
             {questionList}
+            <button className="check-answers">Check answers</button>
         </main>
     )
 }
